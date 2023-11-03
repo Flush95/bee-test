@@ -12,3 +12,5 @@
 
 After this you can check the form on following path: https://bee-test.test/bee_search/index/index
 Admin will be available on: https://bee-test.test/admin. Both Login and password: admin123
+
+The module source code will be available on this path: app/code/
