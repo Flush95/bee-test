@@ -1,0 +1,32 @@
+<!-- File: app/code/Vendor/Module/view/frontend/templates/form.phtml -->
+<div id="form-container">
+    <form id="search-form">
+        <input type="text" name="name" placeholder="Name" class="form-control">
+        <input type="text" name="company" placeholder="Company" class="form-control">
+        <input type="text" name="linkedInProfileUrl" placeholder="LinkedIn URL" class="form-control">
+        <button id="submit-btn">Submit</button>
+    </form>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'Bee_Search/js/popup'
+    ], function ($, customPopup) {
+        $('#submit-btn').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: '/bee_search/index/search',
+                method: 'GET',
+                data: $('#search-form').serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    customPopup(response.message);
+                },
+                error: function(response) {
+                    customPopup(response.message)
+                }
+            });
+        });
+    });
+</script>

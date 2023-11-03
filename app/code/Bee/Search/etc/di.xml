@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bee\Search\Api\RequestHandlerInterface" type="Bee\Search\Model\RequestHandler"/>
+    <preference for="Bee\Search\Api\ConfigResolverInterface" type="Bee\Search\Model\ConfigResolver"/>
+    <preference for="Bee\Search\Api\Data\ProfileInterface" type="Bee\Search\Model\Data\Profile"/>
+    <preference for="Bee\Search\Api\ProfileRepositoryInterface" type="Bee\Search\Model\ProfileRepository"/>
+    <preference for="Bee\Search\Api\Data\ProviderInterface" type="Bee\Search\Model\Data\Provider"/>
+    <preference for="Bee\Search\Api\ProfileServiceInterface" type="Bee\Search\Model\ProfileService"/>
+</config>

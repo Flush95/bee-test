@@ -1,0 +1,17 @@
+{
+  "db_schema": {
+    "column": {
+      "profile_id": true,
+      "email": true,
+      "linkedInProfileUrl": true,
+      "name": true,
+      "company": true
+    },
+    "index": {
+      "DB_SCHEMA_PROFILE_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

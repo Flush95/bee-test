@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="profiles" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="profile_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="255"/>
+        <column xsi:type="varchar" name="linkedInProfileUrl" nullable="false" length="255"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="100"/>
+        <column xsi:type="varchar" name="company" nullable="false" length="150"/>
+        <column xsi:type="boolean" name="searchable" nullable="false" default="1"/>
+        <column xsi:type="int" name="provider_id" nullable="false" unsigned="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="profile_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="PROVIDER_ID" table="profiles" column="provider_id"
+                    referenceTable="providers" referenceColumn="provider_id" onDelete="CASCADE"/>
+        <index referenceId="SCHEMA_PROFILE_ID" indexType="btree">
+            <column name="profile_id"/>
+        </index>
+    </table>
+    <table name="providers" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="provider_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="provider_url" nullable="false" length="255"/>
+        <column xsi:type="varchar" name="required_fields" nullable="false" length="255"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="provider_id"/>
+        </constraint>
+        <index referenceId="SCHEMA_PROVIDER_ID" indexType="btree">
+            <column name="provider_id"/>
+        </index>
+    </table>
+</schema>
